@@ -35,7 +35,6 @@
         "Uptime:":      {"en": "Uptime:",       "de": "Uptime:",    "ru": "Uptime"},
         "WLAN:":        {"en": "WLAN:",         "de": "WLAN:",      "ru": "WLAN"}
     };
-
     function setValue(id, value, onChange) {
         // example: select elements with id=key and class=value and insert value
         if ($('#' + id + '.value').attr('type') === 'checkbox') {
@@ -63,7 +62,6 @@
             });
         }
     }
-
     // the function loadSettings has to exist ...
     function load(settings, onChange) {
         if (!settings) return;
@@ -72,7 +70,6 @@
         }
         onChange(false);
     }
-
     function save(callback) {
         var obj = {};
         $('.value').each(function () {
@@ -85,7 +82,6 @@
         });
         callback(obj);
     }
-
 </script>
 </head>
 <body>
@@ -95,8 +91,6 @@
         <td style="padding-top: 20px;padding-left: 10px"><h3 class="translate">Intel NUC-Monitor Adapter settings</h3></td>
     </tr></table>
 
-    <div id="tabs">
-        <div id="tabs-1">
             <table>
                 <tbody>
                     <tr>
@@ -133,7 +127,5 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </div>
 </div>
 </body></html>
