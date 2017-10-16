@@ -32,5 +32,4 @@ module.exports = {
     //"validateQuoteMarks": { "mark": "\"", "escape": true },
     "disallowMixedSpacesAndTabs": true,
     "disallowKeywordsOnNewLine": ["else", "catch"]
-
 };
