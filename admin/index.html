@@ -19,7 +19,7 @@
 </style>
 
 <script type="text/javascript">
-    changed = false;
+    changed = true;
     systemDictionary = {
         "Intel NUC-Monitor Adapter settings": {
             "en": "Intel NUC-Monitor Adapter settings",
@@ -33,13 +33,7 @@
         "Swap:":        {"en": "Swap:",         "de": "Swap:",      "ru": "Swap"},
         "Temperature:": {"en": "Temperature:",  "de": "Temperatur:", "ru": "Температура"},
         "Uptime:":      {"en": "Uptime:",       "de": "Uptime:",    "ru": "Uptime"},
-        "WLAN:":        {"en": "WLAN:",         "de": "WLAN:",      "ru": "WLAN"},
-        "out":          {"en": "out",           "de": "out",        "ru": "out"},
-        "in":           {"en": "in",            "de": "in",         "ru": "in"},
-        "Port":         {"en": "Port",          "de": "Port",       "ru": "Порт"},
-        "Enabled":      {"en": "Enabled",       "de": "Aktiv",      "ru": "Активен"},
-        "Type":         {"en": "Type",          "de": "Typ",        "ru": "Тип"},
-        "Poll":         {"en": "Poll",          "de": "Pollen",     "ru": "Опрашивать"}
+        "WLAN:":        {"en": "WLAN:",         "de": "WLAN:",      "ru": "WLAN"}
     };
 
     function setValue(id, value, onChange) {
@@ -74,12 +68,9 @@
     function load(settings, onChange) {
         if (!settings) return;
         for (var key in settings) {
-            if (settings === 'gpios') continue;
             setValue(key, settings[key], onChange);
         }
         onChange(false);
-        showGpios(settings.gpios || [], onChange);
-        $('#tabs').tabs();
     }
 
     function save(callback) {
@@ -92,8 +83,6 @@
                 obj[$this.attr('id')] = $this.val();
             }
         });
-        obj.gpios = getGpios();
-
         callback(obj);
     }
 
