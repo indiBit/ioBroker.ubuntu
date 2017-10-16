@@ -4,18 +4,22 @@
         "title":                    "Intel NUC-Monitor",
         "desc":                     {
 			"en": "Intel NUC-Monitor for ioBroker Installations",
-			"de": "RPI-Monitor für ioBroker",
-			"ru": "RPI-Монитор для ioBroker"
+			"de": "Intel NUC-Monitor für ioBroker",
+			"ru": "Intel NUC-Монитор для ioBroker"
 		},
-        "version":                  "0.1.2",
+        "version":                  "0.1.3",
         "news": {
+	    "0.1.3": {
+                "en": "Fixed spelling errors",
+                "de": "Rechtschreibfehler behoben."
+            },
 	    "0.1.2": {
                 "en": "Change the README.md.",
-                "de": "Ůderung der README.md"
+                "de": "Änderung der README.md"
             },
 	    "0.1.1": {
                 "en": "Change any github Links to ioBroker.nuc.",
-                "de": "Ůderung alle Github Links nach iobroker.nuc"
+                "de": "Änderung alle Github Links nach iobroker.nuc"
             },
 	    "0.1.0": {
                 "en": "Initial fork from ioBroker.rpi2.",
