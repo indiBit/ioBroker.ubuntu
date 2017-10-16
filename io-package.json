@@ -1,53 +1,41 @@
 {
     "common": {
-        "name":                     "rpi2",
-        "title":                    "RPI-Monitor",
+        "name":                     "nuc",
+        "title":                    "Intel NUC-Monitor",
         "desc":                     {
-			"en": "RPI-Monitor for ioBroker Installations",
+			"en": "Intel NUC-Monitor for ioBroker Installations",
 			"de": "RPI-Monitor für ioBroker",
 			"ru": "RPI-Монитор для ioBroker"
 		},
-        "version":                  "0.3.1",
+        "version":                  "0.1.2",
         "news": {
-			"0.3.1": {
-                "en": "Fixup swap_used calculation.",
-                "de": "Korrigiere swap_used Kalkulation",
-                "ru": "Исправлено вычисление swap_used"
+	    "0.1.2": {
+                "en": "Change the README.md.",
+                "de": "Ůderung der README.md"
             },
-            "0.3.0": {
-                "en": "Add GPIO direction indication",
-                "de": "GPIO Richtung States hinzugefügt",
-                "ru": "Добавлены состояния для индикации направления GPIO"
+	    "0.1.1": {
+                "en": "Change any github Links to ioBroker.nuc.",
+                "de": "Ůderung alle Github Links nach iobroker.nuc"
             },
-            "0.2.2": {
-                "en": "Use BCM enumeration",
-                "de": "Benutze BCM Numerierung",
-                "ru": "Используется BCM нумерация"
-            },
-            "0.2.1": {
-                "en": "fix start of adapter",
-                "de": "Korrigiert Adapterstart",
-                "ru": "Исправлен старт драйвера"
-            },
-            "0.2.0": {
-                "en": "implement GPIOs control",
-                "de": "Implementiert die Steuerung von GPIOs",
-                "ru": "Добавлено управление GPIOs"
+	    "0.1.0": {
+                "en": "Initial fork from ioBroker.rpi2.",
+                "de": "Initialer Fork von iobroker.rpi2"
             }
         },
         "mode":                     "daemon",
         "platform":                 "javascript/Node.js",
         "os":                       ["linux"],
         "loglevel":                 "info",
-        "keywords":                 ["ioBroker", "monitoring", "raspberry", "orangepi", "odroid", "bananapi", "gpio"],
+        "keywords":                 ["ioBroker", "monitoring", "Intel NUC"],
         "main":                     "main.js",
         "authors": [
-            "Christian Baumgartner", "husky-koglhof <husky.koglhof@icloud.com>"
+            "Christian Baumgartner", "husky-koglhof <husky.koglhof@icloud.com>",
+	    "Torsten Enkelmann", "T. Enkelmann <t.enkelmann@web.de>"
         ],
         "license":                  "MIT",
         "singletonHost":             true,
-        "readme":                   "https://github.com/ioBroker/ioBroker.rpi2/blob/master/README.md",
-        "icon":                     "rpi.png",
+        "readme":                   "https://github.com/tenkelmann/ioBroker.nuc/blob/master/README.md",
+        "icon":                     "intel.png",
         "type":                     "hardware",
 	    "enabled":					true,
         "config":{
@@ -56,11 +44,10 @@
             "minHeight":  600,
             "height":     600
         },
-        "extIcon":                  "https://raw.githubusercontent.com/ioBroker/ioBroker.rpi2/master/admin/rpi.png"
+        "extIcon":                  "https://raw.githubusercontent.com/tenkelmann/ioBroker.nuc/master/admin/intel.png"
     },
     "native": {
         "c_cpu": true,
-        "c_raspberry": false,
         "c_memory": true,
         "c_network": true,
         "c_sdcard": true,
@@ -83,23 +70,6 @@
             "scaling_governor": {
                 "command": "cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor",
                 "regexp": "(.*)",
-                "post": ""
-            }
-        },
-        "raspberry": {
-            "cpu_voltage": {
-                "command": "vcgencmd measure_volts core",
-                "regexp": "(\\d+.\\d+)V",
-                "post": ""
-            },
-            "mem_arm": {
-                "command": "vcgencmd get_mem arm",
-                "regexp": "(\\d+)",
-                "post": ""
-            },
-            "mem_gpu": {
-                "command": "vcgencmd get_mem gpu",
-                "regexp": "(\\d+)",
                 "post": ""
             }
         },
@@ -198,10 +168,7 @@
                 "regexp": "(.*)",
                 "post": ""
             }
-        },
-        "gpios": [
-
-        ]
+        }
     },
     "objects": [
     ],
