@@ -88,11 +88,10 @@
                 "post": "$1/1024"
             },
             "memory_available": {
-                "command": "/usr/bin/free -m",
-                "regexp": "^-\\/\\+ buff\\/cache:\\s+\\d+\\s+(\\d+)",
-                "post": "$1/1024",
-                "multiline": true
-            }
+                "command": "cat /proc/meminfo",
+                "regexp": "MemAvailable:\\s+(\\d+)",
+                "post": "$1/1024"
+	    }
         },
         "network": {
             "net_received": {
