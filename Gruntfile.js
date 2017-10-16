@@ -1,4 +1,5 @@
-// To use this file in WebStorm, right click on the file name in the Project Panel (normally left) and select "Open Grunt Console"
+// To use this file in WebStorm, right click on the file name in the Project Panel (normally left)
+// and select "Open Grunt Console"
 
 /** @namespace __dirname */
 /* jshint -W097 */// jshint strict:false
