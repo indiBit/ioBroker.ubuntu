@@ -1,20 +1,15 @@
 {
-  "name": "iobroker.rpi2",
-  "description": "RPI-Monitor for ioBroker Installations",
-  "version": "0.3.1",
+  "name": "iobroker.nuc",
+  "description": "Intel NUC-Monitor for ioBroker Installations",
+  "version": "0.1.2",
   "engines": {
     "node": ">=0.12"
   },
-  "author": {
-    "name": "husky-koglhof",
-    "email": "husky.koglhof@icloud.com"
-  },
+  "author": "Torsten Enkelmann <t.enkelmann@web.de>",
   "contributors": [
-    "versteckt <husky.koglhof@icloud.com>"
+    "versteckt <t.enkelmann@web.de>"
   ],
-  "optionalDependencies": {
-    "rpi-gpio": "^0.7.0"
-  },
+  "optionalDependencies": {},
   "dependencies": {
     "sync-exec": "^0.6.2"
   },
@@ -27,29 +22,29 @@
     "mocha": "^3.5.3",
     "chai": "^4.1.2"
   },
-  "homepage": "https://github.com/ioBroker/ioBroker.rpi2",
+  "homepage": "https://github.com/tenkelmann/ioBroker.nuc",
   "license": "MIT",
   "keywords": [
     "ioBroker",
     "monitoring",
-    "raspberry",
-    "orangepi",
-    "odroid",
-    "bananapi"
+    "Intel",
+    "NUC"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ioBroker/ioBroker.rpi2"
+    "url": "git+https://github.com/tenkelmann/ioBroker.nuc.git"
   },
   "os": [
     "linux"
   ],
   "bugs": {
-    "url": "https://github.com/ioBroker/ioBroker.rpi2/issues"
+    "url": "https://github.com/tenkelmann/ioBroker.nuc/issues"
   },
   "main": "main.js",
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha"
   },
-  "readmeFilename": "README.md"
+  "_shasum": "539c242eb29ba0d4473335cc08aab03e45f51b6e",
+  "_from": "../../home/toddy/ioBroker.nuc",
+  "_resolved": "file:../../home/toddy/ioBroker.nuc"
 }
