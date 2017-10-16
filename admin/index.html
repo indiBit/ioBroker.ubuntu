@@ -21,14 +21,13 @@
 <script type="text/javascript">
     changed = false;
     systemDictionary = {
-        "RPI-Monitor Adapter settings": {
-            "en": "RPI-Monitor Adapter settings",
-            "de": "RPI-Monitor Adapter-Einstellungen",
-            "ru": "Настройки RPI-монитор адаптера"
+        "Intel NUC-Monitor Adapter settings": {
+            "en": "Intel NUC-Monitor Adapter settings",
+            "de": "Intel NUC-Monitor Adapter-Einstellungen",
+            "ru": "Настройки Intel NUC-монитор адаптера"
         },
         "CPU:":         {"en": "CPU:",          "de": "CPU:",       "ru": "Процессор:"},
         "Memory:":      {"en": "Memory:",       "de": "Speicher:",  "ru": "Память"},
-        "Raspberry:":   {"en": "Raspberry:",    "de": "Raspberry:", "ru": "Raspberry"},
         "Network:":     {"en": "Network:",      "de": "Network:",   "ru": "Сеть"},
         "SDCard:":      {"en": "SD Card:",      "de": "SD Karte:",  "ru": "SD Карта"},
         "Swap:":        {"en": "Swap:",         "de": "Swap:",      "ru": "Swap"},
@@ -40,78 +39,8 @@
         "Port":         {"en": "Port",          "de": "Port",       "ru": "Порт"},
         "Enabled":      {"en": "Enabled",       "de": "Aktiv",      "ru": "Активен"},
         "Type":         {"en": "Type",          "de": "Typ",        "ru": "Тип"},
-        "Poll":         {"en": "Poll",          "de": "Pollen",     "ru": "Опрашивать"},
-        "GPIOs":        {"en": "GPIOs",         "de": "GPIOs",      "ru": "GPIO Порты"}
+        "Poll":         {"en": "Poll",          "de": "Pollen",     "ru": "Опрашивать"}
     };
-
-    var allowedGPIOs = [
-        2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
-    ];
-
-    function showGpios(data, onChange) {
-        var text = '';
-        for (var p = 0; p < allowedGPIOs.length; p++) {
-            if (!data[allowedGPIOs[p]]) data[allowedGPIOs[p]] = {enabled: false, input: 'false'};
-            text += '<tr>';
-            text += '<td style="text-align: center">' + allowedGPIOs[p] + '</td>';
-            text += '<td style="text-align: center"><input class="gpio-value" type="checkbox" data-index="' + allowedGPIOs[p] + '" data-option="enabled"/></td>';
-            text += '<td style="text-align: center"><select class="gpio-value" data-index="' + allowedGPIOs[p] + '" data-option="input">' +
-                            '<option value="false">' + _('out') + '</option>' +
-                            '<option value="true">'  + _('in') + '</option>' +
-                    '</select></td>';
-            text += '</tr>';
-            if (p === Math.round(allowedGPIOs.length / 2) - 1) {
-                $('#gpios1').html(text);
-                text = '';
-            }
-        }
-        $('#gpios2').html(text);
-        $('.gpio-value').each(function () {
-            var attr  = $(this).data('option');
-            var index = $(this).data('index');
-            if ($(this).attr('type') === 'checkbox') {
-                $(this).prop('checked', data[index][attr] === 'true' || data[index][attr] === true);
-            } else {
-                $(this).val(data[index][attr] === 'true' || data[index][attr] === true ? 'true' : 'false');
-            }
-
-            if (attr === 'enabled') {
-                if (data[index][attr] === 'true' || data[index][attr] === true) {
-                    $('[data-index="' + index + '"][data-option="input"]').prop('disabled', false);
-                } else {
-                    $('[data-index="' + index + '"][data-option="input"]').prop('disabled', true);
-                }
-            }
-
-            $(this).change(function () {
-                onChange();
-                var attr  = $(this).data('option');
-                var index = $(this).data('index');
-                if (attr === 'enabled') {
-                    if ($(this).prop('checked')) {
-                        $('[data-index="' + index + '"][data-option="input"]').prop('disabled', false);
-                    } else {
-                        $('[data-index="' + index + '"][data-option="input"]').prop('disabled', true);
-                    }
-                }
-            });
-        });
-    }
-    function getGpios() {
-        var data = [];
-
-        $('.gpio-value').each(function () {
-            var attr = $(this).data('option');
-            var index = $(this).data('index');
-            data[index] = data[index] || {};
-            if ($(this).attr('type') === 'checkbox') {
-                data[index][attr] = $(this).prop('checked');
-            } else {
-                data[index][attr] = $(this).val();
-            }
-        });
-        return data;
-    }
 
     function setValue(id, value, onChange) {
         // example: select elements with id=key and class=value and insert value
@@ -173,25 +102,17 @@
 <body>
 <div id="adapter-container">
     <table><tr>
-        <td><img src="rpi.png" width="64" height="64"></td>
-        <td style="padding-top: 20px;padding-left: 10px"><h3 class="translate">RPI-Monitor Adapter settings</h3></td>
+        <td><img src="intel.png" width="64" height="32"></td>
+        <td style="padding-top: 20px;padding-left: 10px"><h3 class="translate">Intel NUC-Monitor Adapter settings</h3></td>
     </tr></table>
 
     <div id="tabs">
-        <ul>
-            <li><a href="#tabs-1" class="translate">Poll</a></li>
-            <li><a href="#tabs-2" class="translate">GPIOs</a></li>
-        </ul>
         <div id="tabs-1">
             <table>
                 <tbody>
                     <tr>
                         <td class="translate">CPU:</td>
                         <td><input class="value" id="c_cpu" type="checkbox"/></td>
-                    </tr>
-                    <tr>
-                        <td class="translate">Raspberry:</td>
-                        <td><input class="value" id="c_raspberry" type="checkbox"/></td>
                     </tr>
                     <tr>
                         <td class="translate">Memory:</td>
@@ -222,40 +143,6 @@
                         <td><input class="value" id="c_wlan" type="checkbox"/></td>
                     </tr>
                 </tbody>
-            </table>
-        </div>
-        <div id="tabs-2">
-            <table>
-                <tr>
-                    <td>
-                        <table>
-                            <thead>
-                            <tr class="ui-widget-header">
-                                <td style="width: 40px; text-align: center" class="translate">Port</td>
-                                <td style="width: 70px; text-align: center" class="translate">Enabled</td>
-                                <td style="width: 70px; text-align: center" class="translate">Type</td>
-                            </tr>
-                            </thead>
-                            <tbody id="gpios1">
-
-                            </tbody>
-                        </table>
-                    </td>
-                    <td style="padding-left: 20px">
-                        <table>
-                            <thead>
-                            <tr class="ui-widget-header">
-                                <td style="width: 70px; text-align: center" class="translate">Port</td>
-                                <td style="width: 70px; text-align: center" class="translate">Enabled</td>
-                                <td style="width: 70px; text-align: center" class="translate">Type</td>
-                            </tr>
-                            </thead>
-                            <tbody id="gpios2">
-
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
             </table>
         </div>
     </div>
