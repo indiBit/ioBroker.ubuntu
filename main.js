@@ -1,5 +1,5 @@
 /**
- *      RPI-Monitor Adapter
+ *      Intel NUC-Monitor Adapter
  *
  *      License: MIT
  */
