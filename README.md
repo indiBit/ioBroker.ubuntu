@@ -4,6 +4,7 @@ ioBroker Intel NUC-Monitor Adapter
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.nuc.svg)](https://www.npmjs.com/package/iobroker.nuc)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.nuc.svg)](https://www.npmjs.com/package/iobroker.nuc)
+**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/tenkelmann/ioBroker.nuc/master.svg)](https://travis-ci.org/tenkelmann/ioBroker.nuc)
 
 [![NPM](https://nodei.co/npm/iobroker.nuc.png?downloads=true)](https://nodei.co/npm/iobroker.nuc/)
 
