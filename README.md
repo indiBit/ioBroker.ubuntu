@@ -46,12 +46,6 @@ Following Objects are available after selection:
 - net_received
 - net_send
 
-#### **SDCard**
-- sdcard_boot_total
-- sdcard_boot_used
-- sdcard_root_total
-- sdcard_root_used
-
 #### **Swap**
 - swap_total
 - swap_used
@@ -62,21 +56,15 @@ Following Objects are available after selection:
 #### **Uptime**
 - uptime
 
-#### **WLAN**
-- wifi_received
-- wifi_send
-
 ## Configuration
 On configuration page you can select following modules:
 
 - CPU
 - Memory
 - Network
-- SDCard
 - Swap
 - Temperature
 - Uptime
-- WLAN
 
 ## Logfiles / Configuration Settings
 
@@ -90,7 +78,7 @@ On configuration page you can select following modules:
 
 ## Changelog
 
-### 0.1.0 (2017-10-16)
+### 0.1.0 (2017-09-16)
  - Initial fork from rpi2. Alpha Version.
 
 ## License
