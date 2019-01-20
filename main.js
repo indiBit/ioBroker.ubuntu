@@ -1,5 +1,5 @@
 /**
- *      Intel NUC-Monitor Adapter
+ *      Ubuntu-Monitor Adapter
  *
  *      License: MIT
  */
@@ -8,7 +8,7 @@ var utils   = require(__dirname + '/lib/utils'); // Get common adapter utils
 var gpio;
 
 var adapter = utils.adapter({
-    name: 'nuc',
+    name: 'ubuntu',
 
     ready: function () {
         if (adapter.config.forceinit) {

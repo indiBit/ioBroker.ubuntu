@@ -1,13 +1,13 @@
 {
-  "name": "iobroker.nuc",
-  "description": "Intel NUC-Monitor for ioBroker Installations",
-  "version": "0.1.3",
+  "name": "iobroker.ubuntu",
+  "description": "ubuntu-Monitor for ioBroker Installations",
+  "version": "0.1.0",
   "engines": {
     "node": ">=0.12"
   },
-  "author": "Torsten Enkelmann <t.enkelmann@web.de>",
+  "author": "Sebastian Köhler <sebastian@indibit.de>",
   "contributors": [
-    "versteckt <t.enkelmann@web.de>"
+    "versteckt <sebastian@indibit.de>"
   ],
   "optionalDependencies": {},
   "dependencies": {
@@ -22,29 +22,29 @@
     "mocha": "^3.5.3",
     "chai": "^4.1.2"
   },
-  "homepage": "https://github.com/tenkelmann/ioBroker.nuc",
+  "homepage": "https://github.com/indiBit/ioBroker.ubuntu",
   "license": "MIT",
   "keywords": [
     "ioBroker",
     "monitoring",
-    "Intel",
-    "NUC"
+    "Ubuntu",
+    "Linux"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tenkelmann/ioBroker.nuc.git"
+    "url": "git+https://github.com/indiBit/ioBroker.ubuntu.git"
   },
   "os": [
     "linux"
   ],
   "bugs": {
-    "url": "https://github.com/tenkelmann/ioBroker.nuc/issues"
+    "url": "https://github.com/indiBit/ioBroker.ubuntu/issues"
   },
   "main": "main.js",
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha"
   },
   "_shasum": "539c242eb29ba0d4473335cc08aab03e45f51b6e",
-  "_from": "../../home/toddy/ioBroker.nuc",
-  "_resolved": "file:../../home/toddy/ioBroker.nuc"
+  "_from": "../../home/toddy/ioBroker.ubuntu",
+  "_resolved": "file:../../home/toddy/ioBroker.ubuntu"
 }

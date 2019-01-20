@@ -1,14 +1,14 @@
-![Logo](admin/intel.png)
-ioBroker Intel NUC-Monitor Adapter
+![Logo](admin/ubuntu.png)
+ioBroker Ubuntu-Monitor Adapter
 ==============
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.nuc.svg)](https://www.npmjs.com/package/iobroker.nuc)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.nuc.svg)](https://www.npmjs.com/package/iobroker.nuc)
-**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/tenkelmann/ioBroker.nuc/master.svg)](https://travis-ci.org/tenkelmann/ioBroker.nuc)
+[![NPM version](http://img.shields.io/npm/v/iobroker.ubuntu.svg)](https://www.npmjs.com/package/iobroker.ubuntu)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.ubuntu.svg)](https://www.npmjs.com/package/iobroker.ubuntu)
+**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/indiBit/ioBroker.ubuntu/master.svg)](https://travis-ci.org/indiBit/ioBroker.ubuntu)
 
-[![NPM](https://nodei.co/npm/iobroker.nuc.png?downloads=true)](https://nodei.co/npm/iobroker.nuc/)
+[![NPM](https://nodei.co/npm/iobroker.ubuntu.png?downloads=true)](https://nodei.co/npm/iobroker.ubuntu/)
 
-Intel NUC-Monitor implementation for integration into ioBroker (forked from RPI-Monitor). It is the same implementation as for iobroker.rpi2, but without GPIOs.
+Ubuntu-Monitor implementation for integration into ioBroker (forked from Intel NUC-Monitor). It is the same implementation as for iobroker.nuc, but with adjusted commands for reading values from Ubuntu.
 
 ## Important Information
 Works only with node >= 0.12
@@ -16,9 +16,9 @@ Works only with node >= 0.12
 ## Installation
 After installation you have to configure all required modules via administration page.
 
-After start of iobroker.nuc, all selected modules generates
-an object tree in ioBroker within nuc.<instance>.<modulename>
-e.g. nuc.0.cpu
+After start of iobroker.ubuntu, all selected modules generates
+an object tree in ioBroker within ubuntu.<instance>.<modulename>
+e.g. ubuntu.0.cpu
 
 Be sure, that python and build-essential are installed:
 
@@ -51,6 +51,13 @@ Following Objects are available after selection:
 - swap_used
 
 #### **Temperature**
+You may need to install lm-sensors to get tempature values
+```
+sudo apt install -y lm-sensors
+sudo sensors-detect
+sudo service kmod start
+```
+Not supportet in virtual environment
 - soc_temp
 
 #### **Uptime**
@@ -74,16 +81,17 @@ On configuration page you can select following modules:
  - Make an Optionfield for the Network Settings to switch between the old end new Networknames under Debian.
  
 ## Tested Hardware
- - Intel NUC
+ - Ubuntu 18.04.1
 
 ## Changelog
 
-### 0.1.0 (2017-09-16)
- - Initial fork from rpi2. Alpha Version.
+### 0.1.0 (2019-01-20)
+ - Initial fork from nuc. Alpha Version.
 
 ## License
 
 Copyright (c) 2015-2016 husky-koglhof <husky.koglhof@icloud.com>
 Copyright (c) 2017 t.enkelmann@web.de
+Copyright (c) 2019 sebastian@indibit.de
 
 MIT License

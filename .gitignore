@@ -3,3 +3,4 @@ templates
 .npmignore
 /.idea
 temp
+.DS_Store
