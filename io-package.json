@@ -58,11 +58,6 @@
                 "command": "cat /proc/loadavg",
                 "regexp": "^(\\S+)\\s(\\S+)\\s(\\S+)",
                 "post": ""
-            },
-            "scaling_governor": {
-                "command": "",
-                "regexp": "(.*)",
-                "post": ""
             }
         },
         "memory": {
