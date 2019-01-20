@@ -86,7 +86,7 @@
             "net_received": {
                 "command": "cat /sys/class/net/`ls /sys/class/net | grep 'en.*'`/statistics/rx_bytes",
                 "regexp": "(.*)",
-                "post": "$1*-1"
+                "post": ""
             },
             "net_send": {
                 "command": "cat /sys/class/net/`ls /sys/class/net | grep 'en.*'`/statistics/tx_bytes",
@@ -126,7 +126,7 @@
             "wifi_received": {
                 "command": "cat /sys/class/net/`ls /sys/class/net | grep 'wl.*'`/statistics/rx_bytes",
                 "regexp": "(.*)",
-                "post": "$1*-1"
+                "post": ""
             },
             "wifi_send": {
                 "command": "cat /sys/class/net/`ls /sys/class/net | grep 'wl.*'`/statistics/tx_bytes",
