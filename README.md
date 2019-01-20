@@ -29,38 +29,38 @@ sudo apt-get install -y build-essential python
 
 Following Objects are available after selection:
 
-#### **CPU**
+## CPU
 
 - cpu_frequency
 - load1
 - load5
 - load15
 
-#### **Memory**
+## Memory
 
 - memory_available
 - memory_free
 - memory_total
 
-#### **Network (eth0)**
+## Network
 - net_received
 - net_send
 
-#### **Swap**
+## Swap
 - swap_total
 - swap_used
 
-#### **Temperature**
+## Temperature
 You may need to install lm-sensors to get tempature values
 ```
 sudo apt install -y lm-sensors
 sudo sensors-detect
 sudo service kmod start
 ```
-Not supportet in virtual environment
+Not supportet in virtual environments
 - soc_temp
 
-#### **Uptime**
+## Uptime
 - uptime
 
 ## Configuration
