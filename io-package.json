@@ -42,6 +42,7 @@
     "native": {
         "c_cpu": true,
         "c_memory": true,
+        "c_disk": true,
         "c_network": true,
         "c_swap": true,
         "c_temperature": true,
@@ -75,7 +76,29 @@
                 "command": "cat /proc/meminfo",
                 "regexp": "MemAvailable:\\s+(\\d+)",
                 "post": "$1/1024"
-	    }
+	    	}
+        },
+        "disk": {
+            "disk_total": {
+                "command": "df | grep sda1",
+                "regexp": "sda1\\s+(\\d+)",
+                "post": "$1/1024"
+            },
+            "disk_used": {
+                "command": "df | grep sda1",
+                "regexp": "sda1\\s+\\d+\\s+(\\d+)",
+                "post": "$1/1024"
+            },
+            "disk_used_percent": {
+                "command": "df | grep sda1",
+                "regexp": "sda1\\s+\\d+\\s+\\d+\\s+\\d+\\s+(\\d+)",
+                "post": "$1/1024"
+            },
+            "disk_available": {
+                "command": "df | grep sda1",
+                "regexp": "sda1\\s+\\d+\\s+\\d+\\s+(\\d+)",
+                "post": "$1/1024"
+	    	}
         },
         "network": {
             "net_received": {
