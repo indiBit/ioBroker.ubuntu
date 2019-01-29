@@ -3,13 +3,17 @@
         "name":                     "ubuntu",
         "title":                    "Ubuntu-Monitor",
         "desc":                     {
-			"en": "Ubuntu-Monitor for ioBroker Installations",
-			"de": "Ubuntu-Monitor für ioBroker",
-			"ru": "Ubuntu-Монитор для ioBroker"
-		},
-        "version":                  "0.1.0",
+            "en": "Ubuntu-Monitor for ioBroker Installations",
+            "de": "Ubuntu-Monitor für ioBroker",
+            "ru": "Ubuntu-Монитор для ioBroker"
+        },
+        "version":                  "0.1.1",
         "news": {
-	    "0.1.0": {
+        "0.1.1": {
+                "en": "added disk space (sda1 fixed)"
+            }
+        },
+        "0.1.0": {
                 "en": "Initial fork from ioBroker.nuc",
                 "de": "Initialer Fork von iobroker.nuc"
             }
@@ -22,7 +26,7 @@
         "main":                     "main.js",
         "authors": [
             "Christian Baumgartner", "husky-koglhof <husky.koglhof@icloud.com>",
-	    "Torsten Enkelmann", "T. Enkelmann <t.enkelmann@web.de>",
+        "Torsten Enkelmann", "T. Enkelmann <t.enkelmann@web.de>",
         "Sebastian Köhler", "sebastian <sebastian@indibit.de>"
         ],
         "license":                  "MIT",
@@ -30,7 +34,7 @@
         "readme":                   "https://github.com/indiBit/ioBroker.ubuntu/blob/master/README.md",
         "icon":                     "ubuntu.png",
         "type":                     "hardware",
-	    "enabled":					true,
+        "enabled":                  true,
         "config":{
             "minWidth":   650,
             "width":      700,
@@ -76,7 +80,7 @@
                 "command": "cat /proc/meminfo",
                 "regexp": "MemAvailable:\\s+(\\d+)",
                 "post": "$1/1024"
-	    	}
+            }
         },
         "disk": {
             "disk_total": {
@@ -97,8 +101,8 @@
             "disk_available": {
                 "command": "df | grep sda1",
                 "regexp": "sda1\\s+\\d+\\s+\\d+\\s+(\\d+)",
-                "post": ""
-	    	}
+                "post": "$1/1024"
+            }
         },
         "network": {
             "net_received": {
