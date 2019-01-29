@@ -97,7 +97,7 @@
             "disk_available": {
                 "command": "df | grep sda1",
                 "regexp": "sda1\\s+\\d+\\s+\\d+\\s+(\\d+)",
-                "post": "$1/1024"
+                "post": ""
 	    	}
         },
         "network": {
