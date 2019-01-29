@@ -7,8 +7,12 @@
             "de": "Ubuntu-Monitor für ioBroker",
             "ru": "Ubuntu-Монитор для ioBroker"
         },
-        "version":                  "0.1.1",
+        "version":                  "0.1.2",
         "news": {
+        "0.1.2": {
+                "en": "added Disk space (sda2-sdc2)"
+            }
+        },
         "0.1.1": {
                 "en": "added Disk space (sda1 fixed)"
             }
