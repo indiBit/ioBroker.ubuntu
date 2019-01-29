@@ -3,13 +3,17 @@
         "name":                     "ubuntu",
         "title":                    "Ubuntu-Monitor",
         "desc":                     {
-			"en": "Ubuntu-Monitor for ioBroker Installations",
-			"de": "Ubuntu-Monitor für ioBroker",
-			"ru": "Ubuntu-Монитор для ioBroker"
-		},
-        "version":                  "0.1.0",
+            "en": "Ubuntu-Monitor for ioBroker Installations",
+            "de": "Ubuntu-Monitor für ioBroker",
+            "ru": "Ubuntu-Монитор для ioBroker"
+        },
+        "version":                  "0.1.1",
         "news": {
-	    "0.1.0": {
+        "0.1.1": {
+                "en": "added Disk space (sda1 fixed)"
+            }
+        },
+        "0.1.0": {
                 "en": "Initial fork from ioBroker.nuc",
                 "de": "Initialer Fork von iobroker.nuc"
             }
@@ -22,7 +26,7 @@
         "main":                     "main.js",
         "authors": [
             "Christian Baumgartner", "husky-koglhof <husky.koglhof@icloud.com>",
-	    "Torsten Enkelmann", "T. Enkelmann <t.enkelmann@web.de>",
+        "Torsten Enkelmann", "T. Enkelmann <t.enkelmann@web.de>",
         "Sebastian Köhler", "sebastian <sebastian@indibit.de>"
         ],
         "license":                  "MIT",
@@ -30,7 +34,7 @@
         "readme":                   "https://github.com/indiBit/ioBroker.ubuntu/blob/master/README.md",
         "icon":                     "ubuntu.png",
         "type":                     "hardware",
-	    "enabled":					true,
+        "enabled":                  true,
         "config":{
             "minWidth":   650,
             "width":      700,
@@ -42,12 +46,17 @@
     "native": {
         "c_cpu": true,
         "c_memory": true,
-        "c_disk": true,
+        "c_disk_sda1": true,
+        "c_disk_sda2": false,
+        "c_disk_sdb1": false,
+        "c_disk_sdb2": false,
+        "c_disk_sdc1": false,
+        "c_disk_sdc2": false,
         "c_network": true,
         "c_swap": true,
-        "c_temperature": true,
+        "c_temperature": false,
         "c_uptime": true,
-        "c_wlan": true,
+        "c_wlan": false,
         "interval": 60000,
         "cpu": {
             "cpu_frequency": {
@@ -76,9 +85,9 @@
                 "command": "cat /proc/meminfo",
                 "regexp": "MemAvailable:\\s+(\\d+)",
                 "post": "$1/1024"
-	    	}
+            }
         },
-        "disk": {
+        "disk_sda1": {
             "disk_total": {
                 "command": "df | grep sda1",
                 "regexp": "sda1\\s+(\\d+)",
@@ -92,13 +101,123 @@
             "disk_used_percent": {
                 "command": "df | grep sda1",
                 "regexp": "sda1\\s+\\d+\\s+\\d+\\s+\\d+\\s+(\\d+)",
-                "post": "$1/1024"
+                "post": ""
             },
             "disk_available": {
                 "command": "df | grep sda1",
                 "regexp": "sda1\\s+\\d+\\s+\\d+\\s+(\\d+)",
+                "post": "$1/1024"
+            }
+        },
+        "disk_sda2": {
+            "disk_total": {
+                "command": "df | grep sda2",
+                "regexp": "sda2\\s+(\\d+)",
+                "post": "$1/1024"
+            },
+            "disk_used": {
+                "command": "df | grep sda2",
+                "regexp": "sda2\\s+\\d+\\s+(\\d+)",
+                "post": "$1/1024"
+            },
+            "disk_used_percent": {
+                "command": "df | grep sda2",
+                "regexp": "sda2\\s+\\d+\\s+\\d+\\s+\\d+\\s+(\\d+)",
                 "post": ""
-	    	}
+            },
+            "disk_available": {
+                "command": "df | grep sda2",
+                "regexp": "sda2\\s+\\d+\\s+\\d+\\s+(\\d+)",
+                "post": "$1/1024"
+            }
+        },
+        "disk_sdb1": {
+            "disk_total": {
+                "command": "df | grep sdb1",
+                "regexp": "sdb1\\s+(\\d+)",
+                "post": "$1/1024"
+            },
+            "disk_used": {
+                "command": "df | grep sdb1",
+                "regexp": "sdb1\\s+\\d+\\s+(\\d+)",
+                "post": "$1/1024"
+            },
+            "disk_used_percent": {
+                "command": "df | grep sdb1",
+                "regexp": "sda1\\s+\\d+\\s+\\d+\\s+\\d+\\s+(\\d+)",
+                "post": ""
+            },
+            "disk_available": {
+                "command": "df | grep sdb1",
+                "regexp": "sdb1\\s+\\d+\\s+\\d+\\s+(\\d+)",
+                "post": "$1/1024"
+            }
+        },
+        "disk_sdb2": {
+            "disk_total": {
+                "command": "df | grep sdb2",
+                "regexp": "sdb2\\s+(\\d+)",
+                "post": "$1/1024"
+            },
+            "disk_used": {
+                "command": "df | grep sdb2",
+                "regexp": "sdb2\\s+\\d+\\s+(\\d+)",
+                "post": "$1/1024"
+            },
+            "disk_used_percent": {
+                "command": "df | grep sdb2",
+                "regexp": "sda2\\s+\\d+\\s+\\d+\\s+\\d+\\s+(\\d+)",
+                "post": ""
+            },
+            "disk_available": {
+                "command": "df | grep sdb2",
+                "regexp": "sdb2\\s+\\d+\\s+\\d+\\s+(\\d+)",
+                "post": "$1/1024"
+            }
+        },
+        "disk_sdc1": {
+            "disk_total": {
+                "command": "df | grep sdc1",
+                "regexp": "sdc1\\s+(\\d+)",
+                "post": "$1/1024"
+            },
+            "disk_used": {
+                "command": "df | grep sdc1",
+                "regexp": "sdc1\\s+\\d+\\s+(\\d+)",
+                "post": "$1/1024"
+            },
+            "disk_used_percent": {
+                "command": "df | grep sdc1",
+                "regexp": "sdc1\\s+\\d+\\s+\\d+\\s+\\d+\\s+(\\d+)",
+                "post": ""
+            },
+            "disk_available": {
+                "command": "df | grep sdc1",
+                "regexp": "sdc1\\s+\\d+\\s+\\d+\\s+(\\d+)",
+                "post": "$1/1024"
+            }
+        },
+        "disk_sdc2": {
+            "disk_total": {
+                "command": "df | grep sdc2",
+                "regexp": "sdc2\\s+(\\d+)",
+                "post": "$1/1024"
+            },
+            "disk_used": {
+                "command": "df | grep sdc2",
+                "regexp": "sdc2\\s+\\d+\\s+(\\d+)",
+                "post": "$1/1024"
+            },
+            "disk_used_percent": {
+                "command": "df | grep sdc2",
+                "regexp": "sdc2\\s+\\d+\\s+\\d+\\s+\\d+\\s+(\\d+)",
+                "post": ""
+            },
+            "disk_available": {
+                "command": "df | grep sdc2",
+                "regexp": "sdc2\\s+\\d+\\s+\\d+\\s+(\\d+)",
+                "post": "$1/1024"
+            }
         },
         "network": {
             "net_received": {
