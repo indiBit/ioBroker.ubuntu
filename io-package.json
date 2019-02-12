@@ -8,8 +8,9 @@
             "ru": "Ubuntu-Монитор для ioBroker"
             },
 
-        "version":                  "0.1.2",
+        "version":                  "0.1.3",
         "news": {
+            "0.1.3": {"en": "added Disk space (mmcblk0p2), changed CPU frequency to MHz"},
             "0.1.2": {"en": "added Disk space (sda2-sdc2)"},
             "0.1.1": {"en": "added Disk space (sda1 fixed)"},
             "0.1.0": {"en": "Initial fork from ioBroker.nuc","de": "Initialer Fork von iobroker.nuc"}
@@ -48,6 +49,7 @@
         "c_disk_sdb2": false,
         "c_disk_sdc1": false,
         "c_disk_sdc2": false,
+        "c_disk_mmcblk0p2": false,
         "c_network": true,
         "c_swap": true,
         "c_temperature": false,
@@ -58,7 +60,7 @@
             "cpu_frequency": {
                 "command": "lscpu | grep MHz",
                 "regexp": "MHz:\\s+(\\S+)",
-                "post": "$1/1000"
+                "post": ""
             },
             "load1,load5,load15": {
                 "command": "cat /proc/loadavg",
@@ -212,6 +214,28 @@
             "disk_available": {
                 "command": "df | grep sdc2",
                 "regexp": "sdc2\\s+\\d+\\s+\\d+\\s+(\\d+)",
+                "post": "$1/1024"
+            }
+        },
+        "disk_mmcblk0p2": {
+            "disk_total": {
+                "command": "df | grep mmcblk0p2",
+                "regexp": "mmcblk0p2\\s+(\\d+)",
+                "post": "$1/1024"
+            },
+            "disk_used": {
+                "command": "df | grep mmcblk0p2",
+                "regexp": "mmcblk0p2\\s+\\d+\\s+(\\d+)",
+                "post": "$1/1024"
+            },
+            "disk_used_percent": {
+                "command": "df | grep mmcblk0p2",
+                "regexp": "mmcblk0p2\\s+\\d+\\s+\\d+\\s+\\d+\\s+(\\d+)",
+                "post": ""
+            },
+            "disk_available": {
+                "command": "df | grep mmcblk0p2",
+                "regexp": "mmcblk0p2\\s+\\d+\\s+\\d+\\s+(\\d+)",
                 "post": "$1/1024"
             }
         },

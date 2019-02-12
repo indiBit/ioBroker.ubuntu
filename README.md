@@ -42,7 +42,7 @@ Following Objects are available after selection:
 - memory_free
 - memory_total
 
-## Disk (sda1, sda2, sdb1, sdb2, sdc1, sdc2)
+## Disk (sda1, sda2, sdb1, sdb2, sdc1, sdc2, mmcblk0p2)
 
 - disk_available
 - disk_total
